@@ -1,6 +1,7 @@
 import { chatStore, configStore } from '@/store'
 import styles from './index.module.less'
 import { Avatar } from 'antd'
+import openaiLogo from '@/assets/openai.svg'; // 引入本地 SVG 资源
 
 function Reminder() {
   const { random_personas, website_logo } = configStore()
@@ -8,7 +9,13 @@ function Reminder() {
 
   return (
     <div className={styles.reminder}>
-      {website_logo && <img src={website_logo} className={styles.reminder_logo} />}
+      {website_logo && (
+        <img
+          src={website_logo === 'local' ? openaiLogo : website_logo} // 根据值判断使用本地资源还是外部链接
+          className={styles.reminder_logo} // 样式类名
+          alt="Website Logo" // 提供图片的替代文本
+        />
+      )}
       <h2 className={styles.reminder_title}>欢迎来到 {document.title}</h2>
       <p className={styles.reminder_message}>
         与AI智能聊天，畅想无限可能！基于先进的AI引擎，让你的交流更加智能、高效、便捷！

@@ -13,6 +13,7 @@ import { LoginForm, ProFormCaptcha, ProFormText } from '@ant-design/pro-form'
 import { Button, Form, FormInstance, Modal, Space, Tabs } from 'antd'
 import { useState } from 'react'
 import { useNavigation, useLocation } from 'react-router-dom'
+import openaiLogo from '@/assets/openai.svg';
 
 type Props = {
   open: boolean
@@ -43,7 +44,7 @@ export function LoginCard(props: {
   return (
     <LoginForm<RequestLoginParams>
       form={props.form}
-      logo="https://u1.dl0.cn/icon/openailogo.svg"
+      logo={openaiLogo}
       title=""
       subTitle="基于大语言模型的AI对话产品"
       actions={(

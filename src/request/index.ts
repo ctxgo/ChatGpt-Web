@@ -131,7 +131,6 @@ const request = <T>(
     ...options,
     headers: correctHeaders(options?.method, options?.headers)
   }
-
   // 导入请求拦截器
   options = interceptorsRequest({
     url,
@@ -173,7 +172,7 @@ const request = <T>(
           // We know it's been canceled!
           return
         }
-        const data = { code: 504, data: error, message: '网络异常，请稍后重新尝试。' }
+        const data = { code: 504, data: error, message: '网络异常，请稍后重新尝试。',url: url }
         await interceptorsErrorResponse(data)
         await reject(data)
       })

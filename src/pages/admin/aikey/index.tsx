@@ -30,6 +30,22 @@ const getModels = (type: string) => {
       }
     ]
   }
+  if (type === 'gemini') {
+    return [
+      {
+        label: 'gemini-1.0-pro(标准)',
+        value: 'gemini-1.0-pro'
+      },
+      {
+        label: 'gemini-1.5-pro(最佳)',
+        value: 'gemini-1.5-pro'
+      },
+      {
+        label: 'gemini-1.5-flash(快速)',
+        value: 'gemini-1.5-flash'
+      }
+    ]
+  }
   return [
     {
       label: 'OpenAI(dall-e)绘画',
@@ -108,11 +124,7 @@ function AikeyPage() {
       title: 'HOST',
       dataIndex: 'host',
       render: (_, data) => {
-        return (
-          <a href={data.host} target="_blank" rel="noreferrer">
-            {data.host}
-          </a>
-        )
+        return data.host;
       }
     },
     {
@@ -362,6 +374,11 @@ function AikeyPage() {
                     host: 'https://api.stability.ai',
                     models: []
                   })
+                } else if (value === 'gemini'){
+                  form.setFieldsValue({
+                    host: 'sdk',
+                    models: []
+                  })
                 } else {
                   form.setFieldsValue({
                     host: '',
@@ -378,6 +395,10 @@ function AikeyPage() {
               {
                 label: 'StableDiffusion',
                 value: 'stability'
+              },
+              {
+                label: 'GeminiAi',
+                value: 'gemini'
               }
             ]}
             rules={[{ required: true, message: 'AI类型' }]}
@@ -421,7 +442,7 @@ function AikeyPage() {
                 label="API地址或代理地址"
                 placeholder="请选择或者输入API地址"
                 mode="single"
-                disabled={type === 'stability'}
+                disabled={type === 'stability' || type === 'gemini'}
                 fieldProps={{
                   labelInValue: false,
                   onSearch: (value) => {
@@ -443,7 +464,7 @@ function AikeyPage() {
                   {
                     required: true,
                     message: '请输入正确对应的Host',
-                    pattern: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*[^\/]$/i
+                    pattern: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*[^\/]$|^sdk$/i
                   }
                 ]}
               />

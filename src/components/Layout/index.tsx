@@ -4,6 +4,7 @@ import { ChatsInfo } from '@/types'
 import React, { useEffect } from 'react'
 import { MenuProps } from 'antd'
 import { configStore } from '@/store'
+import openaiLogo from '@/assets/openai.svg'; 
 
 type Props = {
   menuExtraRender?: () => React.ReactNode
@@ -50,7 +51,7 @@ function Layout(props: Props) {
   return (
     <ProLayout
       title={website_title}
-      logo={website_logo}
+      logo={website_logo === 'local' ? openaiLogo : website_logo}
       layout="mix"
       splitMenus={false}
       contentWidth="Fluid"

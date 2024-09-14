@@ -46,20 +46,32 @@ const configStore = create<ConfigState>()(
 	  random_personas: [],
       models: [
         {
-          label: 'GPT-3.5',
-          value: 'gpt-3.5-turbo'
+          label: 'gemini-1.5-flash(gemini)',
+          value: 'gemini-1.5-flash(gemini)'
         },
-		{
-			label: 'GPT-3.5-16k',
-			value: 'gpt-3.5-turbo-16k'
-		},
         {
-          label: 'GPT-4',
-          value: 'gpt-4'
+          label: 'gemini-1.5-pro(gemini)',
+          value: 'gemini-1.5-pro(gemini)'
+        },
+        {
+          label: 'gemini-1.0-pro(gemini)',
+          value: 'gemini-1.0-pro(gemini)'
+        },
+        {
+          label: 'gpt-3.5-turbo(openai)',
+          value: 'gpt-3.5-turbo(openai)'
+        },
+        {
+          label: 'gpt-3.5-turbo-16k(openai)',
+          value: 'gpt-3.5-turbo-16k(openai)'
+        },
+        {
+          label: 'gpt-4(openai)',
+          value: 'gpt-4(openai)'
         }
       ],
       config: {
-        model: 'gpt-3.5-turbo-16k',
+        model: 'gemini-1.5-flash(gemini)',
         temperature: 0.8,
         presence_penalty: 0,
         frequency_penalty: 0,
