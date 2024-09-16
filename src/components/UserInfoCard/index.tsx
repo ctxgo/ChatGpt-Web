@@ -2,6 +2,7 @@ import { UserInfo } from '@/types'
 import styles from './index.module.less'
 import { Space, Statistic, Tooltip } from 'antd'
 import { useMemo } from 'react'
+import userAvatar from '@/assets/avatar.png'; 
 
 function UserInfoCard(props: { info?: UserInfo,  children?: React.ReactNode; }) {
 
@@ -46,7 +47,9 @@ function UserInfoCard(props: { info?: UserInfo,  children?: React.ReactNode; }) 
   return (
     <div className={styles.userInfo}>
       <div className={styles.userInfo_card}>
-        <img className={styles.userInfo_avatar} src={info?.avatar} alt="" />
+     
+        <img className={styles.userInfo_avatar} src= {info?.avatar=== 'local' ? userAvatar : info?.avatar} alt="" />
+
         <div className={styles.userInfo_info}>
           <div className={styles.userInfo_info_title}>
             <span>{info?.nickname}</span>
