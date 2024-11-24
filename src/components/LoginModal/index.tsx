@@ -55,6 +55,14 @@ export function LoginCard(props: {
           }}
         >
           <p>登录即代表你同意 <a href="https://www.baidu.com/">《平台协议》</a>和<a href="https://www.baidu.com/">《隐私政策》</a> </p>
+        <div
+          style={{
+            marginTop: 80,
+            color: 'gray'
+          }}
+        >
+          <a href="https://test/" target="_blank" style={{ color: 'gray' }}>粤xx-xxxxxxxxxx-1</a>
+        </div>
         </div>
       )}
       contentStyle={{

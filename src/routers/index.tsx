@@ -50,7 +50,7 @@ export const webRouter: RouteOptions[] = [
     element: <ChatPage />,
     children: [],
     configure: {
-      verifToken: false,
+      verifToken: true,
       role: ['user', 'administrator']
     }
   },

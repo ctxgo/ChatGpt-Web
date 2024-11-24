@@ -601,6 +601,7 @@ function UserPage() {
             }
           ]}
         />
+        { user_info?.role  != 'administrator' && (
         <ProFormCaptcha
           fieldProps={{
             size: 'large',
@@ -632,6 +633,7 @@ function UserPage() {
             )
           }}
         />
+        )}
         {userAccountModal.type === 'password' && (
           <ProFormText.Password
             name="password"
