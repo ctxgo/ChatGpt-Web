@@ -224,7 +224,7 @@ function ChatPage() {
     const requestOptions = {
       prompt: vaule,
       parentMessageId,
-      persona_id: selectChat?.persona_id || refurbishOptions?.persona_id || '',
+      persona_id: selectChat?.persona_id || refurbishOptions?.persona_id || null,
       options: filterObjectNull({
         ...config,
         ...refurbishOptions?.requestOptions.options
